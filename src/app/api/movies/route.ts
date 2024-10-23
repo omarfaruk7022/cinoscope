@@ -7,11 +7,8 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const query = searchParams.get("query");
 
-  let url;
+  const url = `${API_URL}search/movie?api_key=${API_KEY}&query=${query}`;
 
-  url = `${API_URL}search/movie?api_key=${API_KEY}&query=${query}`;
-
-  console.log(url);
   const res = await fetch(url, {
     headers: {
       "Content-Type": "application/json",

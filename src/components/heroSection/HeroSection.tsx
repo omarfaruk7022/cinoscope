@@ -3,16 +3,16 @@ import placeholder from "@/public/images/hero.webp";
 import Image from "next/image";
 import { IoSearchSharp } from "react-icons/io5";
 
-interface HeroProps {
-  searchQuery: string;
+interface HeroSectionProps {
   setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
-  handleSearch: () => void;
+  searchQuery: string;
+  handleSearch: (e: React.FormEvent) => void;
 }
 export default function HeroSection({
   setSearchQuery,
   searchQuery,
   handleSearch,
-}: HeroProps) {
+}: HeroSectionProps) {
   return (
     <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
       <Image

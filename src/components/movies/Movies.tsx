@@ -6,8 +6,7 @@ import Link from "next/link";
 // Function to fetch movies from our API route
 
 export default function Movies({ movie }: any) {
-  const url = process.env.IMAGE_PATH;
-  console.log(movie);
+
   return (
     <Link
       href={`/movies/${movie.id}`}

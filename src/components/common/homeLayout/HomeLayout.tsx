@@ -21,8 +21,8 @@ async function fetchMovies(query: string): Promise<MovieApiResponse> {
   return response.json();
 }
 export default function HomeLayout() {
-  const [searchQuery, setSearchQuery] = useState();
-  const { data, isLoading, error, refetch } = useQuery({
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const { data, error, refetch } = useQuery({
     queryKey: ["movies", searchQuery],
     queryFn: () => fetchMovies(searchQuery),
     enabled: false, // Don't run the query automatically
@@ -61,7 +61,7 @@ export default function HomeLayout() {
         <h2 className="text-3xl font-bold mb-6">HOME</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {data?.results?.map((movie: any) => (
-            <Movies movie={movie} />
+            <Movies movie={movie} key={movie?.id} />
           ))}
         </div>
       </section>
