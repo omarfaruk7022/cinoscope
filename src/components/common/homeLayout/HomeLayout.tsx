@@ -4,7 +4,6 @@ import Movies from "@/components/movies/Movies";
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 
-
 async function fetchMovies(query: string) {
   const response = await fetch(
     `/api/movies?query=${encodeURIComponent(query)}`
@@ -25,7 +24,7 @@ export default function HomeLayout() {
 
   console.log(error);
 
-  const handleSearch = (e: any) => {
+  const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery) {
       refetch();

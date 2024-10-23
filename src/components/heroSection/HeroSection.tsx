@@ -6,7 +6,7 @@ import { IoSearchSharp } from "react-icons/io5";
 interface HeroSectionProps {
   setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
   searchQuery: string;
-  handleSearch: (e: React.FormEvent) => void;
+  handleSearch: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 export default function HeroSection({
   setSearchQuery,
