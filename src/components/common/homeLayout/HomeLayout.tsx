@@ -4,13 +4,8 @@ import Movies from "@/components/movies/Movies";
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 
-interface MovieApiResponse {
-  success: boolean;
-  status_code?: number;
-  status_message?: string;
-  results?: any[];
-}
-async function fetchMovies(query: string): Promise<MovieApiResponse> {
+
+async function fetchMovies(query: string) {
   const response = await fetch(
     `/api/movies?query=${encodeURIComponent(query)}`
   );

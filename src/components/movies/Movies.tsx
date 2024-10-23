@@ -4,9 +4,15 @@ import placeholder from "@/public/images/placeholder.svg";
 import Link from "next/link";
 
 // Function to fetch movies from our API route
-
-export default function Movies({ movie }: any) {
-
+interface MovieProps {
+  movie: {
+    id: number;
+    title: string;
+    poster_path: string;
+    release_date: string;
+  };
+}
+export default function Movies({ movie }: MovieProps) {
   return (
     <Link
       href={`/movies/${movie.id}`}
