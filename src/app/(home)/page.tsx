@@ -1,5 +1,6 @@
 import Image from "next/image";
 import placeholder from "@/public/images/placeholder.svg";
+import Movie from "@/components/movies/Movie";
 export default function MovieSearch() {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
@@ -69,18 +70,8 @@ export default function MovieSearch() {
       <section className="container mx-auto px-4 mb-12">
         <h2 className="text-3xl font-bold mb-6">HOME</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          {[1, 2, 3, 4, 5].map((movie) => (
-            <div
-              key={movie}
-              className="relative aspect-[2/3] rounded-lg overflow-hidden shadow-lg"
-            >
-              <Image
-                src={placeholder}
-                alt={`Movie ${movie}`}
-                layout="fill"
-                objectFit="cover"
-              />
-            </div>
+          {[1, 2, 3, 4, 5].map((movie: Object) => (
+            <Movie key={movie.toString()} movie={movie} />
           ))}
         </div>
       </section>
