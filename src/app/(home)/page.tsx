@@ -1,35 +1,12 @@
 import Image from "next/image";
 import placeholder from "@/public/images/placeholder.svg";
 import Movie from "@/components/movies/Movie";
+import Header from "@/components/common/Header/Header";
 export default function MovieSearch() {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       {/* Header */}
-      <header className="p-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold">HOME</h1>
-        <nav>
-          <ul className="flex space-x-4">
-            {[
-              "HOME",
-              "NONE",
-              "MOVIES",
-              "GENERS",
-              "OBNERS",
-              "QENERS",
-              "GENS",
-            ].map((item) => (
-              <li
-                key={item}
-                className={`${
-                  item === "HOME" ? "border-b-2 border-red-500" : ""
-                }`}
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </header>
+      <Header />
 
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
