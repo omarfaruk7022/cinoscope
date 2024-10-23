@@ -4,6 +4,13 @@ import Movies from "@/components/movies/Movies";
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 
+interface Movie {
+  id: number;
+  title: string;
+  poster_path: string;
+  release_date: string;
+  // Add other fields as needed
+}
 async function fetchMovies(query: string) {
   const response = await fetch(
     `/api/movies?query=${encodeURIComponent(query)}`
@@ -54,7 +61,7 @@ export default function HomeLayout() {
       <section className="container mx-auto px-4 mb-12">
         <h2 className="text-3xl font-bold mb-6">HOME</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          {data?.results?.map((movie: any) => (
+          {data?.results?.map((movie: Movie) => (
             <Movies movie={movie} key={movie?.id} />
           ))}
         </div>
