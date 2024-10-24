@@ -32,12 +32,11 @@ async function fetchSearchedMovies(query: string) {
 }
 export default function HomeLayout() {
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [loadedData, setLoadedData] = useState();
 
   // Fetching all movies
   const {
     data: allMovies,
-    error: allMoviesError,
+    // error: allMoviesError,
     refetch: refetchAllMovies,
   } = useQuery({
     queryKey: ["movies"],
@@ -47,7 +46,7 @@ export default function HomeLayout() {
   // Fetching searched movies
   const {
     data: searchedMovies,
-    error: searchedMoviesError,
+    // error: searchedMoviesError,
     refetch: refetchSearchedMovies,
   } = useQuery({
     queryKey: ["searched-movies", searchQuery],
